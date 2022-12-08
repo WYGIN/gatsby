@@ -7,7 +7,5 @@ exports.createPages = async ({ graphql , actions }) => {
   const categoryTemplate = path.resolve(`src/templates/category.js`)
   const tagTemplate = path.resolve(`src/templates/tag.js`)
   
-  const postList = await graphql(`
-    
-`)
+  const postList = await graphql()
 }
