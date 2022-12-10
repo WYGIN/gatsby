@@ -1,6 +1,6 @@
 const prismicPostByAuthor = `
-  query($author: String!) {
-    allPrismicPost(filter: { data: { author: { ... on prismicAuthor: { data: { name: { eq: $author } } } } } }) {
+  query($authorId: String!) {
+    allPrismicPost(filter: { data: { author: { ... on prismicAuthor: { id: { eq: $authorId  } } } } }) {
       nodes {
         uid
         lastPublicationDate
@@ -41,6 +41,13 @@ const prismicPostByAuthor = `
                     publicURL
                   }
                 }
+              }
+            }
+          }
+          tags {
+            tag {
+              ... on prismicTag {
+                label
               }
             }
           }
