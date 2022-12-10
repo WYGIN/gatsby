@@ -14,7 +14,7 @@ const allPrismicAuthor = `
           links {
             label
             link {
-              ... on _ExternalLink {
+              ... on prismic_ExternalLink {
                 url
                 target
               }
