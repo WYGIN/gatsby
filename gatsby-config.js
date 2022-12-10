@@ -9,7 +9,7 @@ const { linkResolver } = require("./config/prismic/link-resolver");
  
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://www.yourdomain.tld`,
+    siteUrl: `https://www.wygin.com`,
   },
   plugins: [
      "gatsby-plugin-image", 
