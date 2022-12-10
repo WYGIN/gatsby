@@ -5,7 +5,7 @@ const allPrismicCategory = `
         data {
           label
           body {
-            ... on CategoryBodyCategory {
+            ... on PrismicCategoryBodyCategory {
               primary {
                 level1
               }
