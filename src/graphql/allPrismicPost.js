@@ -15,15 +15,17 @@ const allPrismicPost = `
             richText
           }
           tags {
-            ... on Tag {
+            tag {
+              ... on prismicTag {
               
-              data {
-                label
+                data {
+                  label
+                }
               }
             }
           }
           author {
-            ... on author {
+            ... on prismicAuthor {
               uid
               data {
                 name
@@ -39,11 +41,11 @@ const allPrismicPost = `
             }
           }
           category {
-            ... on Category {
+            ... on prismicCategory {
               data {
                 label
                 body {
-                  ... on CategoryBodyCategory {
+                  ... on PrismicCategoryBodyCategory {
                     primary {
                       level1
                     }
