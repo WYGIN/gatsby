@@ -45,9 +45,11 @@ const prismicPostByCategory = `
             }
           }
           tags {
-            ... on prismicTag {
-              data {
-                label
+            tag {
+              ... on prismicTag {
+                data {
+                  label
+                }
               }
             }
           }
