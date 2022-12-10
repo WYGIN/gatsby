@@ -1,9 +1,12 @@
 import { graphql } from "gatsby"
-import { AllPosts } from "./src/graphql/AllPosts"
-import { AllPages } from "./src/graphql/AllPages"
-import { AllCategories } from "./src/graphql/AllCategories"
-import { AllTags } from "./src/graphql/AllTags"
-import { AllAuthors } from "./src/graphql/AllAuthors"
+import { allPrismicAuthor } from "./src/graphql/allPrismicAuthor"
+import { allPrismicCategory } from "./src/graphql/allPrismicCategory"
+import { allPrismicPage } from "./src/graphql/allPrismicPage"
+import { allPrismicPost } from "./src/graphql/allPrismicPost"
+import { allPrismicTag } from "./src/graphql/allPrismicTag"
+import { prismicPostByAuthor } from "./src/graphql/prismicPostByAuthor"
+import { prismicPostByCategory } from "./src/graphql/prismicPostByCategory"
+import { prismicPostByTag } from "./src/graphql/prismicPostByTag"
 
 const path = require(`path`)
 exports.createPages = async ({ graphql , actions }) => {
@@ -15,10 +18,30 @@ exports.createPages = async ({ graphql , actions }) => {
   const tagTemplate = path.resolve(`src/templates/tag.js`)
   const authorTemplate = path.resolve(`src/templ6/author.js`)
   
-  const postList = await graphql(AllPosts)
-  const pageList = await graphql(AllPages)
-  const categoryList = await graphql(AllCategories)
-  const tagList = await graphql(AllTags)
-  const authorList = await graphql(AllAuthors)
+  const postList = await graphql(allPrismicPost)
+  const pageList = await graphql(allPrismicPage)
+  const categoryList = await graphql(allPrismicCategory)
+  const tagList = await graphql(allPrismicTag)
+  const authorList = await graphql(allPrismicAuthor)
+
+//  const postsByAuthor = await graphql(prismicPostByAuthor, { authorId:  })
+//  const postsByCategory = await graphql(prismicPostByCategory, { CategoryId:  })
+//  const postByTag = await graphql(prismicPostByTag, { tagId:  })
   
+  postList.data.allPrismicPost.nodes.forEach(node => {
+    let path = ""
+    const category = node.data.category.data
+    if(category.label != null || category.label != "") {
+      path += category.label
+      if(category.body)
+    }
+    createPage({
+      path: ``,
+      component: postTemplate,
+      context: {
+        
+      }
+    })
+  })
+
 }
